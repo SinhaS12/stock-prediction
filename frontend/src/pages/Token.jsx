@@ -6,22 +6,7 @@ export function Token() {
   const [selectedTab, setSelectedTab] = useState("wallet");
   const [searchType, setSearchType] = useState("standard");
 
-  const chains = [
-    { label: "SOL", address: "EBwMpd2zHKJuG3qxqBgLgNYpjS9DJLtPpG2CytcJqhJL" },
-    { label: "SOL", address: "0xa336033fc39a359e375007e75af49768e98d0790" },
-    { label: "SOL", address: "bc1qs4ln7kdtcwvcualqlv0qmf7cm446tdzjwv89c" },
-    { label: "SOL", address: "0xa336033fc39a359e375007e75af49768e98d0790" },
-    { label: "SOL", address: "TLUd7JuJbZuqxknlitHGurXUknygmRuiSj" },
-  ];
 
-  const handleCopy = (address) => {
-    navigator.clipboard.writeText(address);
-    alert("Copied!");
-  };
-
-  function callAPI(){
-    axios.get("http://localhost:3000/")
-  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-blue-800 via-black to-gray-800">

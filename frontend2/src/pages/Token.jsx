@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import Ticker from "../components/Ticker"; 
+import { useNavigate } from "react-router-dom";
 
 export function Token() {
+  const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState("wallet");
   const [searchType, setSearchType] = useState("standard");
   const [token, setToken] = useState("");
