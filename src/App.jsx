@@ -99,7 +99,7 @@ function App() {
           <Route path="/" element = {<Landing/>} />
           <Route path="/token" element= {<Token/>} />
         </Routes>
-         <div className="min-h-screen bg-black flex flex-col items-center justify-center">
+         <div className="min-h-screen bg-black flex flex-col items-center justify-cente aaaa">
       <h1 className="text-3xl font-bold text-white mb-6"> Features</h1>
       <FeatureMarquee />
     </div>
