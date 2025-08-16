@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Copy } from "lucide-react";
+import axios from "axios";
 
 export function Token() {
   const [selectedTab, setSelectedTab] = useState("wallet");
@@ -18,11 +19,15 @@ export function Token() {
     alert("Copied!");
   };
 
+  function callAPI(){
+    axios.get("http://localhost:3000/")
+  }
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-red-100 via-white to-red-200">
-      {/* Main Card */}
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-3xl font-bold flex items-center gap-2 mb-8 text-red-900">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-blue-800 via-black to-gray-800">
+      
+      <div className="w-full max-w-2xl bg-neutral-300 rounded-2xl shadow-xl p-8">
+        <h1 className="text-3xl font-bold flex items-center gap-2 mb-8 text-Black-900">
           Start Investigation <span>🔍</span>
         </h1>
 
@@ -47,20 +52,21 @@ export function Token() {
             className="flex-1 px-4 py-2 rounded-lg bg-purple-50 border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
 
-          <button className="px-5 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition">
+          <button onClick={callAPI}
+          className="px-5 py-2 bg-gray-400 cursor-pointer text-white rounded-lg shadow hover:bg-gray-700 transition">
             Validating!
           </button>
         </div>
 
         {/* Tabs */}
-        <div className="mt-8 border-2 border-dashed border-red-300 rounded-lg p-6 bg-red-50">
+        <div className="mt-8 border-2 border-dashed border-gray-300 rounded-lg p-6 bg-red-50">
           <div className="flex gap-4 mb-6">
             <button
               onClick={() => setSelectedTab("wallet")}
-              className={`px-4 py-2 rounded-lg font-medium transition ${
+              className={`px-4 py-2 rounded-lg font-medium transition cursor-pointer  ${
                 selectedTab === "wallet"
-                  ? "bg-red-500 text-white shadow"
-                  : "bg-white border hover:bg-gray-50"
+                  ? "bg-linear-to-l  bg-red-300  text-black "
+                  : "bg-white border hover:bg-gray-50 "
               }`}
             >
               Wallet

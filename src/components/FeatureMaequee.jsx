@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 
 export default function FeatureMarquee() {
+    
   const features = [
     {
       title: "📊 Marked Data",
