@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import solanaLogo from "../assets/solana.png";
 import ethLogo from "../assets/ethereum.png";
-import btcLogo from "../assets/bitcoin.png";
+import btcLogo from "../assets/bitcoin2.png";
 import bnbLogo from "../assets/bnb.png";
 
 export default function Ticker() {
