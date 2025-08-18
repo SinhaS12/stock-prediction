@@ -46,29 +46,17 @@ app.get("/:token", async function(req,res){ //route parameter;
         closes[i] = parseFloat(stockDataBACKPACK[i].close);
         volumes[i] = parseFloat(stockDataBACKPACK[i].volume);
     }
-
-    // --- Calculate 30-day SMA ---
-    var sma30 = [];
-    // console.log(closes.length);
-    // for (var i = 29; i < closes.length; i++) { //what if I remove the 1st for loop
-    //     var sum = 0;
-    //     for (var j = i - 29; j <= i; j++) {
-    //         sum += closes[j];
-    //     }
-    //     sma30[i] = sum / 30;
-    // }
+    
+    let sma30 = 0;
     let sum = 0;
-    for(let i=0; i<closes.length; i++){
+    for(let i=(closes.length)-30; i<closes.length ; i++){
         sum = sum + closes[i];
     }
-    
+    sma30 = sum/30;
 
-
-
-    // --- Last day analysis ---
     var lastIndex = closes.length - 1;
     var lastClose = closes[lastIndex];
-    var lastSMA = sma30[lastIndex];
+    var lastSMA = sma30;
 
     if(lastClose > lastSMA){
 
@@ -86,62 +74,8 @@ app.get("/:token", async function(req,res){ //route parameter;
     
     })
 
-    // axios.get(`https://api.binance.com/api/v3/klines?symbol=${symbol}USDC&interval=1d&startTime=${binanceStartTime}&endTime=${binanceEndTime}`)
-    // .then(function(response){
-    //   stockDataBINANCE = response.data;
-      
-    //   // --- Extract closes and volumes into arrays ---
-    // var closes = [];
-    // var volumes = [];
-    // for (var i = 0; i < stockDataBINANCE.length; i++) {
-    //     closes[i] = parseFloat(stockDataBINANCE[i][4]);
-    //     volumes[i] = parseFloat(stockDataBINANCE[i][5]);
-    // }
-
-    // // --- Calculate 30-day SMA ---
-    // var sma30 = [];
-    // for (var i = 29; i < closes.length; i++) {
-    //     var sum = 0;
-    //     for (var j = i - 29; j <= i; j++) {
-    //         sum += closes[j];
-    //     }
-    //     sma30[i] = sum / 30;
-    // }
-
-    
-    // // --- Last day analysis ---
-    // var lastIndex = closes.length - 1;
-    // var lastClose = closes[lastIndex];
-    // var lastSMA = sma30[lastIndex];
-
-
-    // if(lastClose > lastSMA) {    
-    //     res.json({ //Price above SMA 
-    //         trend: "Bullish",
-    //         suggestion: "Long"
-    //     })
-    // }
-    // else {
-    //     res.json({ //Price below SMA
-    //         trend: "Bearish",
-    //         suggestion: "Short"
-    //     })
-    // }
-    
-
-    // })
-
-
-
-
-
 
 })
-
-
-
-  
-    
 
 
 app.listen(3000, function(){
